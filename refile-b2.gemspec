@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-
   spec.add_dependency "refile"
+  spec.add_dependency "httpclient", "~> 2.0"
 
   spec.add_development_dependency "webmock", "~> 1.20.4"
   spec.add_development_dependency "bundler", "~> 1.7"

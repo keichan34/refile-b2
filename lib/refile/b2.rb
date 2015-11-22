@@ -1,5 +1,6 @@
 require "refile"
 require "refile/b2/version"
+require "backblaze-b2"
 
 module Refile
   module B2
