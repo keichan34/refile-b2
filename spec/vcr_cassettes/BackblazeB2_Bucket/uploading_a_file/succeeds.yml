@@ -1,0 +1,206 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://TEST_CLIENT_ID:TEST_CLIENT_SECRET@api.backblaze.com/b2api/v1/b2_authorize_account
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 11:37:49 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '240'
+      Date:
+      - Sun, 22 Nov 2015 11:37:50 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "apiUrl": "https://api000.backblaze.com",
+          "authorizationToken": "test_token",
+          "downloadUrl": "https://f000.backblaze.com"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 11:37:50 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_list_buckets
+    body:
+      encoding: UTF-8
+      string: '{"accountId":"TEST_CLIENT_ID"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 11:37:50 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '191'
+      Date:
+      - Sun, 22 Nov 2015 11:37:50 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "buckets": [
+            {
+              "accountId": "TEST_CLIENT_ID",
+              "bucketId": "test-bucket-id",
+              "bucketName": "test-bucket",
+              "bucketType": "allPrivate"
+            }
+          ]
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 11:37:51 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_get_upload_url
+    body:
+      encoding: UTF-8
+      string: '{"bucketId":"test-bucket-id"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 11:37:51 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '285'
+      Date:
+      - Sun, 22 Nov 2015 11:37:51 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "authorizationToken": "test_token",
+          "bucketId": "test-bucket-id",
+          "uploadUrl": "https://pod-000-1010-06.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0032"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 11:37:51 GMT
+- request:
+    method: post
+    uri: https://pod-000-1010-06.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0032
+    body:
+      encoding: UTF-8
+      string: "<html>new hello</html>"
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 11:37:51 GMT
+      Authorization:
+      - test_token
+      X-Bz-File-Name:
+      - newfile.html
+      Content-Type:
+      - b2/x-auto
+      X-Bz-Content-Sha1:
+      - e8eb0954fbe5f5f9c902ff76e7f2510610280eff
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '337'
+      Date:
+      - Sun, 22 Nov 2015 11:37:52 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "bucketId": "test-bucket-id",
+          "contentLength": 22,
+          "contentSha1": "e8eb0954fbe5f5f9c902ff76e7f2510610280eff",
+          "contentType": "text/html",
+          "fileId": "4_ztest-bucket-id_f1062a8817e87caa8_d20151122_m113752_c000_v0001010_t0032",
+          "fileInfo": {},
+          "fileName": "newfile.html"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 11:37:54 GMT
+recorded_with: VCR 3.0.0

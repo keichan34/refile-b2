@@ -1,0 +1,771 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://TEST_CLIENT_ID:TEST_CLIENT_SECRET@api.backblaze.com/b2api/v1/b2_authorize_account
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:39 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '240'
+      Date:
+      - Sun, 22 Nov 2015 12:59:40 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "apiUrl": "https://api000.backblaze.com",
+          "authorizationToken": "test_token",
+          "downloadUrl": "https://f000.backblaze.com"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:40 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_list_buckets
+    body:
+      encoding: UTF-8
+      string: '{"accountId":"TEST_CLIENT_ID"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:40 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '360'
+      Date:
+      - Sun, 22 Nov 2015 12:59:40 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "buckets": [
+            {
+              "accountId": "TEST_CLIENT_ID",
+              "bucketId": "test-bucket-id",
+              "bucketName": "test-bucket",
+              "bucketType": "allPrivate"
+            }
+          ]
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:41 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_get_upload_url
+    body:
+      encoding: UTF-8
+      string: '{"bucketId":"test-bucket-id"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:41 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '285'
+      Date:
+      - Sun, 22 Nov 2015 12:59:41 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "authorizationToken": "test_token",
+          "bucketId": "test-bucket-id",
+          "uploadUrl": "https://pod-000-1010-15.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0001"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:41 GMT
+- request:
+    method: post
+    uri: https://pod-000-1010-15.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0001
+    body:
+      encoding: UTF-8
+      string: to delete
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:41 GMT
+      Authorization:
+      - test_token
+      X-Bz-File-Name:
+      - file_to_delete_0.txt
+      Content-Type:
+      - b2/x-auto
+      X-Bz-Content-Sha1:
+      - 991ee609efcf4767ebabfd09ca121c22cf4ab416
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '345'
+      Date:
+      - Sun, 22 Nov 2015 12:59:43 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "bucketId": "test-bucket-id",
+          "contentLength": 9,
+          "contentSha1": "991ee609efcf4767ebabfd09ca121c22cf4ab416",
+          "contentType": "text/plain",
+          "fileId": "4_ztest-bucket-id_f115fef25ff19784d_d20151122_m125942_c000_v0001010_t0001",
+          "fileInfo": {},
+          "fileName": "file_to_delete_0.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:44 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_get_upload_url
+    body:
+      encoding: UTF-8
+      string: '{"bucketId":"test-bucket-id"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:44 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '285'
+      Date:
+      - Sun, 22 Nov 2015 12:59:44 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "authorizationToken": "test_token",
+          "bucketId": "test-bucket-id",
+          "uploadUrl": "https://pod-000-1007-17.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001007_t0037"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:44 GMT
+- request:
+    method: post
+    uri: https://pod-000-1007-17.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001007_t0037
+    body:
+      encoding: UTF-8
+      string: to delete
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:44 GMT
+      Authorization:
+      - test_token
+      X-Bz-File-Name:
+      - file_to_delete_1.txt
+      Content-Type:
+      - b2/x-auto
+      X-Bz-Content-Sha1:
+      - 991ee609efcf4767ebabfd09ca121c22cf4ab416
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '345'
+      Date:
+      - Sun, 22 Nov 2015 12:59:47 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "bucketId": "test-bucket-id",
+          "contentLength": 9,
+          "contentSha1": "991ee609efcf4767ebabfd09ca121c22cf4ab416",
+          "contentType": "text/plain",
+          "fileId": "4_ztest-bucket-id_f117af1f3f9eab7e9_d20151122_m125945_c000_v0001007_t0037",
+          "fileInfo": {},
+          "fileName": "file_to_delete_1.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:48 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_get_upload_url
+    body:
+      encoding: UTF-8
+      string: '{"bucketId":"test-bucket-id"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:48 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '285'
+      Date:
+      - Sun, 22 Nov 2015 12:59:48 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "authorizationToken": "test_token",
+          "bucketId": "test-bucket-id",
+          "uploadUrl": "https://pod-000-1010-13.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0001"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:48 GMT
+- request:
+    method: post
+    uri: https://pod-000-1010-13.backblaze.com/b2api/v1/b2_upload_file/test-bucket-id/c000_v0001010_t0001
+    body:
+      encoding: UTF-8
+      string: to delete
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:48 GMT
+      Authorization:
+      - test_token
+      X-Bz-File-Name:
+      - file_to_delete_2.txt
+      Content-Type:
+      - b2/x-auto
+      X-Bz-Content-Sha1:
+      - 991ee609efcf4767ebabfd09ca121c22cf4ab416
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '345'
+      Date:
+      - Sun, 22 Nov 2015 12:59:50 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "bucketId": "test-bucket-id",
+          "contentLength": 9,
+          "contentSha1": "991ee609efcf4767ebabfd09ca121c22cf4ab416",
+          "contentType": "text/plain",
+          "fileId": "4_ztest-bucket-id_f11304a54429df525_d20151122_m125949_c000_v0001010_t0001",
+          "fileInfo": {},
+          "fileName": "file_to_delete_2.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:50 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_list_file_versions
+    body:
+      encoding: UTF-8
+      string: '{"bucketId":"test-bucket-id"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:50 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '786'
+      Date:
+      - Sun, 22 Nov 2015 12:59:51 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "files": [
+            {
+              "action": "upload",
+              "fileId": "4_ztest-bucket-id_f115fef25ff19784d_d20151122_m125942_c000_v0001010_t0001",
+              "fileName": "file_to_delete_0.txt",
+              "size": 9,
+              "uploadTimestamp": 1448197182000
+            },
+            {
+              "action": "upload",
+              "fileId": "4_ztest-bucket-id_f117af1f3f9eab7e9_d20151122_m125945_c000_v0001007_t0037",
+              "fileName": "file_to_delete_1.txt",
+              "size": 9,
+              "uploadTimestamp": 1448197185000
+            },
+            {
+              "action": "upload",
+              "fileId": "4_ztest-bucket-id_f11304a54429df525_d20151122_m125949_c000_v0001010_t0001",
+              "fileName": "file_to_delete_2.txt",
+              "size": 9,
+              "uploadTimestamp": 1448197189000
+            }
+          ],
+          "nextFileId": null,
+          "nextFileName": null
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:51 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_delete_file_version
+    body:
+      encoding: UTF-8
+      string: '{"fileName":"file_to_delete_0.txt","fileId":"4_ztest-bucket-id_f115fef25ff19784d_d20151122_m125942_c000_v0001010_t0001"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:51 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '140'
+      Date:
+      - Sun, 22 Nov 2015 12:59:51 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "fileId": "4_ztest-bucket-id_f115fef25ff19784d_d20151122_m125942_c000_v0001010_t0001",
+          "fileName": "file_to_delete_0.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:52 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_delete_file_version
+    body:
+      encoding: UTF-8
+      string: '{"fileName":"file_to_delete_1.txt","fileId":"4_ztest-bucket-id_f117af1f3f9eab7e9_d20151122_m125945_c000_v0001007_t0037"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:52 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '140'
+      Date:
+      - Sun, 22 Nov 2015 12:59:52 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "fileId": "4_ztest-bucket-id_f117af1f3f9eab7e9_d20151122_m125945_c000_v0001007_t0037",
+          "fileName": "file_to_delete_1.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:52 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_delete_file_version
+    body:
+      encoding: UTF-8
+      string: '{"fileName":"file_to_delete_2.txt","fileId":"4_ztest-bucket-id_f11304a54429df525_d20151122_m125949_c000_v0001010_t0001"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:52 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '140'
+      Date:
+      - Sun, 22 Nov 2015 12:59:52 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "fileId": "4_ztest-bucket-id_f11304a54429df525_d20151122_m125949_c000_v0001010_t0001",
+          "fileName": "file_to_delete_2.txt"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:53 GMT
+- request:
+    method: get
+    uri: https://f000.backblaze.com/file/test-bucket/file_to_delete_0.txt
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:53 GMT
+      Authorization:
+      - test_token
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '82'
+      Date:
+      - Sun, 22 Nov 2015 12:59:54 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "code": "internal_error",
+          "message": "file_state_deleted",
+          "status": 500
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:54 GMT
+- request:
+    method: get
+    uri: https://f000.backblaze.com/file/test-bucket/file_to_delete_1.txt
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:54 GMT
+      Authorization:
+      - test_token
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '82'
+      Date:
+      - Sun, 22 Nov 2015 12:59:56 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "code": "internal_error",
+          "message": "file_state_deleted",
+          "status": 500
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:56 GMT
+- request:
+    method: get
+    uri: https://f000.backblaze.com/file/test-bucket/file_to_delete_2.txt
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 12:59:56 GMT
+      Authorization:
+      - test_token
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '82'
+      Date:
+      - Sun, 22 Nov 2015 12:59:56 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "code": "internal_error",
+          "message": "file_state_deleted",
+          "status": 500
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 12:59:57 GMT
+recorded_with: VCR 3.0.0

@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://TEST_CLIENT_ID:TEST_CLIENT_SECRET@api.backblaze.com/b2api/v1/b2_authorize_account
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 07:11:42 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '240'
+      Date:
+      - Sun, 22 Nov 2015 07:11:42 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "apiUrl": "https://api000.backblaze.com",
+          "authorizationToken": "test_token",
+          "downloadUrl": "https://f000.backblaze.com"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 07:11:42 GMT
+- request:
+    method: post
+    uri: https://api000.backblaze.com/b2api/v1/b2_list_buckets
+    body:
+      encoding: UTF-8
+      string: '{"accountId":"TEST_CLIENT_ID"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 07:11:42 GMT
+      Authorization:
+      - test_token
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '191'
+      Date:
+      - Sun, 22 Nov 2015 07:11:42 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "buckets": [
+            {
+              "accountId": "TEST_CLIENT_ID",
+              "bucketId": "test-bucket-id",
+              "bucketName": "test-bucket",
+              "bucketType": "allPrivate"
+            }
+          ]
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 07:11:43 GMT
+recorded_with: VCR 3.0.0

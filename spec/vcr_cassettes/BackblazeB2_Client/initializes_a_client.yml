@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://TEST_CLIENT_ID:TEST_CLIENT_SECRET@api.backblaze.com/b2api/v1/b2_authorize_account
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.0.1, ruby 2.2.2 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 22 Nov 2015 07:07:00 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '240'
+      Date:
+      - Sun, 22 Nov 2015 07:07:01 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "accountId": "TEST_CLIENT_ID",
+          "apiUrl": "https://api000.backblaze.com",
+          "authorizationToken": "test_token",
+          "downloadUrl": "https://f000.backblaze.com"
+        }
+    http_version:
+  recorded_at: Sun, 22 Nov 2015 07:07:01 GMT
+recorded_with: VCR 3.0.0
