@@ -1,11 +1,11 @@
 require 'vcr'
 require 'pry'
 
-require 'backblaze-b2'
-require 'backblaze-b2/backends/dummy'
-
 require 'coveralls'
 Coveralls.wear!
+
+require 'backblaze-b2'
+require 'backblaze-b2/backends/dummy'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"
