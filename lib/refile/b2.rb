@@ -10,11 +10,13 @@ module Refile
 
       attr_reader :max_size
 
-      def initialize(account_id:, application_key:, bucket:, prefix: nil, max_size: nil, hasher: Refile::RandomHasher.new)
+      def initialize(account_id:, application_key:, bucket:, prefix: nil, max_size: nil, hasher: Refile::RandomHasher.new, client_backend: BackblazeB2::Backends::HTTPClient)
         @hasher = hasher
         @prefix = prefix
         @max_size = max_size
-        @client = BackblazeB2::Client.new(account_id, application_key)
+
+        @client = BackblazeB2::Client.new(account_id, application_key, backend: client_backend)
+
         @bucket_name = bucket
         @bucket = @client.bucket(@bucket_name)
       end

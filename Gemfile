@@ -5,3 +5,5 @@ gemspec
 
 gem "refile", github: "refile/refile"
 gem "pry"
+
+gem "coveralls", require: false
