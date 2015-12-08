@@ -1,4 +1,4 @@
-# Refile::B2 [![Build Status](https://travis-ci.org/keichan34/refile-b2.svg)](https://travis-ci.org/keichan34/refile-b2)
+# Refile::B2 [![Build Status](https://travis-ci.org/keichan34/refile-b2.svg)](https://travis-ci.org/keichan34/refile-b2) [![Coverage Status](https://coveralls.io/repos/keichan34/refile-b2/badge.svg?branch=master&service=github)](https://coveralls.io/github/keichan34/refile-b2?branch=master)
 
 A [Backblaze B2](https://www.backblaze.com/b2/) backend for
 [Refile](https://github.com/elabs/refile).
